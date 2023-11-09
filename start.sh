@@ -6,11 +6,11 @@ done
 echo ${choices[@]}
 exitstatus=0
 while [ $exitstatus -eq 0 ]; do
-    OPTION=$(dialog --clear --title "System Administrator Toolbox" --menu "Select which script to run:" 15 30 5 "${choices[@]}" 2>&1 > /dev/tty)
+    OPTION=$(dialog --clear --title "System Administrator Toolbox" --menu "Select which script to run:" 15 100 5 "${choices[@]}" 2>&1 > /dev/tty)
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
         clear
-        $(./$OPTION/run.sh)
+        $(dirname $0)/$OPTION/run.sh
     else
         exitstatus=1
         clear

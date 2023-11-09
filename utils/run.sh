@@ -2,8 +2,9 @@
 
 #######################################################################
 ########################## List Utilites ##############################
-choices=("fix_perm.sh" "Fix execute permissions on all utilities")
+choices=("add_user.sh" "Add new user")
 choices+=("install_all.sh" "Run all utilities")
+choices+=("fix_perm.sh" "Fix execute permissions on all utilities")
 choices+=("install_ansible.sh" "Install Ansible")
 choices+=("install_git.sh" "Install Git")
 choices+=("install_pwsh.sh" "Install Powershell")
@@ -17,7 +18,7 @@ while [ $exitstatus -eq 0 ]; do
     exitstatus=$?
     if [ $exitstatus -eq 0 ]; then
         clear
-        $(dirname $0)/$OPTION 2>&1 > /dev/tty
+        sudo $(dirname $0)/$OPTION 2>&1 > /dev/tty
         sort /mnt/installed.txt | uniq | tee /mnt/installed.txt
         echo "" 2>&1 > /dev/tty
         echo "Press any key to continue..." 2>&1 > /dev/tty
