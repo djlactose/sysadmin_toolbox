@@ -1,5 +1,4 @@
 #!/bin/bash
-. $(dirname $0)/../utils.conf
 
 #######################################################################
 ########################## List Utilites ##############################
@@ -13,7 +12,7 @@ while [ $exitstatus -eq 0 ]; do
     exitstatus=$?
     if [ $exitstatus -eq 0 ]; then
         clear
-        sudo $path/$OPTION 2>&1 > /dev/tty
+        sudo $( dirname "${BASH_SOURCE[0]}" )/$OPTION 2>&1 > /dev/tty
         echo ""
         echo "Installed Packages:"
         sort /mnt/installed.txt | uniq | tee /mnt/installed.txt

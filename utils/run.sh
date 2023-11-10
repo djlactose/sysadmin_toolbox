@@ -1,9 +1,9 @@
 #!/bin/bash
-. ./$(dirname $0)/utils.conf
+path=$( dirname "${BASH_SOURCE[0]}" )
 
 choices=()
 for i in `find -L $path/ -mindepth 2 -maxdepth 2 -name name`; do 
-    choices+=("$(echo $i | cut -d "/" -f 3)" "$(cat $i)")
+    choices+=("$(echo $i | cut -d "/" -f 4)" "$(cat $i)")
 done
 echo ${choices[@]}
 exitstatus=0

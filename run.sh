@@ -1,12 +1,8 @@
 #!/bin/bash
 
-if [ -f /mnt/installed.txt ]; then
-    cat /mnt/installed.txt | bash
-fi
 if [ -f /root/bak/passwd ]; then
     \cp -P /root/bak/passwd /etc/
     \cp -P /root/bak/shadow /etc/
-    \cp -P /root/bak/gshadow /etc/
     \cp -P /root/bak/group /etc/
 fi
 if [ -f /root/bak/ssh_host_rsa_key ]; then
@@ -23,5 +19,8 @@ else
     cp /etc/ssh/ssh_host_dsa_key /root/bak/
     cp /etc/ssh/ssh_host_ecdsa_key /root/bak/
     cp /etc/ssh/ssh_host_ed25519_key /root/bak/
+fi
+if [ -f /mnt/installed.txt ]; then
+    cat /mnt/installed.txt | bash
 fi
 /usr/sbin/sshd -f /etc/ssh/sshd_config -D -e
