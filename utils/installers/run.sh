@@ -17,10 +17,8 @@ while [ $exitstatus -eq 0 ]; do
     if [ $exitstatus -eq 0 ]; then
         clear
         sudo $( dirname "${BASH_SOURCE[0]}" )/$OPTION 2>&1 > /dev/tty
+        sudo $( dirname "${BASH_SOURCE[0]}" )/../other/cleanup_installed.sh
         echo ""
-        echo "Installed Packages:"
-        sort /mnt/installed.txt | uniq | tee /mnt/installed.txt
-        echo "" 2>&1 > /dev/tty
         echo "Press any key to continue..." 2>&1 > /dev/tty
         read
     else
