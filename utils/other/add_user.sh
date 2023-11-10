@@ -1,5 +1,5 @@
 #!/bin/bash
-. $(dirname $0)/utils.conf
+. $(dirname $0)/../utils.conf
 
 read -p "Username: "
 adduser -s /mnt/start.sh -G wheel $REPLY

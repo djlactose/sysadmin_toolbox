@@ -1,4 +1,7 @@
 #!/bin/bash
+
+cd "$(dirname "$0")"
+path="$(pwd)"
 choices=()
 for i in `find -L /mnt/ -mindepth 2 -maxdepth 2 -name name`; do 
     choices+=("$(echo $i | cut -d "/" -f 3)" "$(cat $i)")
@@ -10,7 +13,9 @@ while [ $exitstatus -eq 0 ]; do
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
         clear
-        $(dirname $0)/$OPTION/run.sh
+        $path/$OPTION/run.sh
+        $(readlink -f "$0")
+        exitstatus=1
     else
         exitstatus=1
         clear

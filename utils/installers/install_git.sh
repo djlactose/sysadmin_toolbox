@@ -1,4 +1,4 @@
 #!/bin/bash
-. $(dirname $0)/utils.conf
+. ../$(dirname $0)/utils.conf
 
 apk add --no-cache git

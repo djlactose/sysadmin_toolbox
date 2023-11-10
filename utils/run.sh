@@ -1,29 +1,20 @@
 #!/bin/bash
+. ./$(dirname $0)/utils.conf
 
-#######################################################################
-########################## List Utilites ##############################
-choices=("add_user.sh" "Add new user")
-choices+=("install_all.sh" "Run all utilities")
-choices+=("fix_perm.sh" "Fix execute permissions on all utilities")
-choices+=("install_ansible.sh" "Install Ansible")
-choices+=("install_git.sh" "Install Git")
-choices+=("install_pwsh.sh" "Install Powershell")
-choices+=("install_py3.sh" "Install Python3")
-choices+=("install_py_mssql.sh" "Install Python3 libs for MSSQL")
-#######################################################################
-#######################################################################
+choices=()
+for i in `find -L $path/ -mindepth 2 -maxdepth 2 -name name`; do 
+    choices+=("$(echo $i | cut -d "/" -f 3)" "$(cat $i)")
+done
+echo ${choices[@]}
 exitstatus=0
 while [ $exitstatus -eq 0 ]; do
     OPTION=$(dialog --clear --title "Toolbox Utilities" --menu "Select which script to run:" 15 100 5 "${choices[@]}" 2>&1 > /dev/tty)
     exitstatus=$?
-    if [ $exitstatus -eq 0 ]; then
+    if [ $exitstatus = 0 ]; then
         clear
-        sudo $(dirname $0)/$OPTION 2>&1 > /dev/tty
-        sort /mnt/installed.txt | uniq | tee /mnt/installed.txt
-        echo "" 2>&1 > /dev/tty
-        echo "Press any key to continue..." 2>&1 > /dev/tty
-        read
+        $path/$OPTION/run.sh
     else
         exitstatus=1
+        clear
     fi
 done

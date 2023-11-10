@@ -1,5 +1,5 @@
 #!/bin/bash
-. $(dirname $0)/utils.conf
+. ../$(dirname $0)/utils.conf
 
 wget https://download.microsoft.com/download/3/5/5/355d7943-a338-41a7-858d-53b259ea33f5/msodbcsql18_18.3.2.1-1_amd64.apk -O /tmp/msodbcsql18_18.3.2.1-1_amd64.apk
 wget https://download.microsoft.com/download/3/5/5/355d7943-a338-41a7-858d-53b259ea33f5/mssql-tools18_18.3.1.1-1_amd64.apk -O /tmp/mssql-tools18_18.3.1.1-1_amd64.apk
