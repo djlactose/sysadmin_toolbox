@@ -21,6 +21,7 @@ else
     cp /etc/ssh/ssh_host_ed25519_key /root/bak/
 fi
 if [ -f /mnt/installed.txt ]; then
+    /mnt/utils/other/cleanup_installed.sh
     cp /mnt/installed.txt /tmp/installed.txt
     cat /tmp/installed.txt | bash
     rm /tmp/installed.txt
