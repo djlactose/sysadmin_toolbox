@@ -13,7 +13,8 @@ while [ $exitstatus -eq 0 ]; do
     exitstatus=$?
     if [ $exitstatus -eq 0 ]; then
         clear
-        sudo $( dirname "${BASH_SOURCE[0]}" )/$OPTION 2>&1 > /dev/tty
+        sudo bash $( dirname "${BASH_SOURCE[0]}" )/$OPTION 2>&1 > /dev/tty
+        sudo bash $( dirname "${BASH_SOURCE[0]}" )/cleanup_installed.sh
         echo ""
         echo "Press any key to continue..." 2>&1 > /dev/tty
         read

@@ -1,5 +1,5 @@
 #!/bin/bash
-. $( dirname "${BASH_SOURCE[0]}" )/../utils.conf
+echo $0 >> /mnt/installed.txt
 
 # install the requirements
 apk add --no-cache ca-certificates less ncurses-terminfo-base krb5-libs libgcc libintl libssl1.1 libstdc++ tzdata userspace-rcu zlib icu-libs curl

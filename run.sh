@@ -21,6 +21,8 @@ else
     cp /etc/ssh/ssh_host_ed25519_key /root/bak/
 fi
 if [ -f /mnt/installed.txt ]; then
-    cat /mnt/installed.txt | bash
+    cp /mnt/installed.txt /tmp/installed.txt
+    cat /tmp/installed.txt | bash
+    rm /tmp/installed.txt
 fi
 /usr/sbin/sshd -f /etc/ssh/sshd_config -D -e

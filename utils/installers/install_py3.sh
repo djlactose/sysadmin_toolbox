@@ -1,4 +1,4 @@
 #!/bin/bash
-. $( dirname "${BASH_SOURCE[0]}" )/../utils.conf
+echo $0 >> /mnt/installed.txt
 
 apk add --no-cache py3-pip
