@@ -8,3 +8,10 @@ apk add --no-cache python3-dev py3-pip gcc libc-dev g++ libffi-dev libxml2 unixo
 python3 -m pip install pyodbc pyopenssl
 rm /tmp/msodbcsql18_18.3.2.1-1_amd64.apk
 rm /tmp/mssql-tools18_18.3.1.1-1_amd64.apk
+
+if [ ! -f /mnt/mssql/name ]; then
+    echo "Creating MS SQL directory..."
+    mkdir /mnt/mssql
+    echo "MS SQL Scripts" > /mnt/mssql/name
+    cp /mnt/skel/run.sh /mnt/mssql/run.sh
+fi

@@ -20,3 +20,10 @@ chmod +x /opt/microsoft/powershell/7/pwsh
 
 # Create the symbolic link that points to pwsh
 ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
+
+if [ ! -f /mnt/pwsh/name ]; then
+    echo "Creating Powershell directory..."
+    mkdir /mnt/pwsh
+    echo "Powershell Scripts" > /mnt/pwsh/name
+    cp /mnt/skel/run.sh /mnt/pwsh/run.sh
+fi
