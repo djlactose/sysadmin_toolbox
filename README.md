@@ -48,7 +48,7 @@ Templates are still being developed, the intent is to make them completely able 
 
 ## Built in supported languages
 
-The following languages have build in support once you run the installer for the language:
+The following languages have built in support once you run the installer for the language:
 
 * ansible
 * git
