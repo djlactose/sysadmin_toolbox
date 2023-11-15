@@ -35,7 +35,7 @@ fi
 if [ ! -d /mnt/templates ]; then
     ln -s /opt/sysadmin_toolbox/templates /mnt/templates
 fi
-if [ -f /mnt/start.sh ]; then
+if [ ! -f /mnt/start.sh ]; then
     ln -s /opt/sysadmin_toolbox/start.sh /mnt/start.sh
 fi
 
