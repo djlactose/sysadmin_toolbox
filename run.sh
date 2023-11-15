@@ -26,4 +26,17 @@ if [ -f /mnt/installed.txt ]; then
     cat /tmp/installed.txt | bash
     rm /tmp/installed.txt
 fi
+if [ ! -d /mnt/utils ]; then
+    ln -s /opt/sysadmin_toolbox/utils /mnt/utils
+fi
+if [ ! -d /mnt/skel ]; then
+    ln -s /opt/sysadmin_toolbox/skel /mnt/skel
+fi
+if [ ! -d /mnt/templates ]; then
+    ln -s /opt/sysadmin_toolbox/templates /mnt/templates
+fi
+if [ -f /mnt/start.sh ]; then
+    ln -s /opt/sysadmin_toolbox/start.sh /mnt/start.sh
+fi
+
 /usr/sbin/sshd -f /etc/ssh/sshd_config -D -e
