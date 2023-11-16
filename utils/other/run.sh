@@ -3,6 +3,7 @@
 #######################################################################
 ########################## List Utilites ##############################
 choices=("add_user.sh" "Add new user")
+choices+=("change_pass.sh" "Change your password")
 choices+=("fix_perm.sh" "Fix execute permissions on all utilities")
 choices+=("cleanup_installed.sh" "Automatically clean the installed app list")
 #######################################################################

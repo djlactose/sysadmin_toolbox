@@ -13,7 +13,7 @@ COPY utils/ /opt/sysadmin_toolbox/utils/
 COPY skel/ /opt/sysadmin_toolbox/skel/
 COPY templates/ /opt/sysadmin_toolbox/templates/
 
-RUN apk add --no-cache openssh-server sudo bash dialog && \
+RUN apk add --no-cache openssh-server shadow sudo bash dialog && \
 chmod +x /opt/sysadmin_toolbox -R && \
 ln -s /opt/sysadmin_toolbox/utils /mnt/utils && \
 ln -s /opt/sysadmin_toolbox/skel /mnt/skel && \
