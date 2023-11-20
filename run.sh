@@ -25,6 +25,10 @@ if [ -f /mnt/installed.txt ]; then
     cp /mnt/installed.txt /tmp/installed.txt
     cat /tmp/installed.txt | bash
     rm /tmp/installed.txt
+else
+    touch /root/bak/installed.txt
+    chmod 666 /root/bak/installed.txt
+    ln -s /root/bak/installed.txt /mnt/installed.txt
 fi
 if [ ! -d /mnt/utils ]; then
     ln -s /opt/sysadmin_toolbox/utils /mnt/utils
